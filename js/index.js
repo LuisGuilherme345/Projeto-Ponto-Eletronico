@@ -1,16 +1,23 @@
 const diaSemana = document.getElementById("diadasemana");
 const dataAtual = document.getElementById("dataatual");
 const horaAtual = document.getElementById("horaatual");
+const botaoregistro = document.getElementById("botaoregistrar");
+
+    botaoregistro.addEventListener("click", register);
 
 dataAtual.textContent = getCurrentDate();
 diaSemana.textContent = getWeekDay();
+
+function register(){
+    //usar <dialog> para fazer um "pop-up" antes da próxima aula
+}
 
 //atualiza a hora em tempo real
 function updateContentHour(){
     horaAtual.textContent = getCurrentTime();
 }
 
-//retorna a hora atual por: hora:minutos:segundos
+//retorna a hora atual por: hora:minutos:segundos (ifs servem para deixar sempre um 0 ao lado do número, porém é recomendado usar a função padstart para isso se for necessário fazer novamente)
 function getCurrentTime(){
     const date = new Date();    
     
@@ -34,7 +41,7 @@ function getCurrentTime(){
 
 }
 
-//retorna a data atual por: dd/mm/yyyy
+//retorna a data atual por: dd/mm/yyyy (ifs servem para deixar sempre um 0 ao lado do número, porém é recomendado usar a função padstart para isso se for necessário fazer novamente)
 function getCurrentDate(){
     const date = new Date();
     if ( ((date.getDate()) < 10) && ((date.getMonth()) < 10) ){
