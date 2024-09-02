@@ -1,20 +1,47 @@
+navigator.geolocation.getCurrentPosition((position) =>{
+    console.log(position);
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+});
+
+
 const diaSemana = document.getElementById("diadasemana");
 const dataAtual = document.getElementById("dataatual");
 const horaAtual = document.getElementById("horaatual");
 const botaoregistro = document.getElementById("botaoregistrar");
 
-    botaoregistro.addEventListener("click", register);
+botaoregistro.addEventListener("click", register);
 
 dataAtual.textContent = getCurrentDate();
 diaSemana.textContent = getWeekDay();
 
+const dialogP = document.getElementById("dialog-p");
+
+const dialogData = document.getElementById("dialog-data")
+dialogData.textContent = getCurrentDate();
+
+const dialogHora = document.getElementById("dialog-hora")
+dialogHora.textContent = getCurrentTime();
+
+const botaoDialogEntrada = document.getElementById("dialog-entrada")
+botaoDialogEntrada.addEventListener("click", () =>{
+    //continuar em casa a partir deste
+})
+
+const botaodialogFechar = document.getElementById("dialog-fechar");
+botaodialogFechar.addEventListener("click", () =>{
+    dialogP.close();
+});
+
 function register(){
-    //usar <dialog> para fazer um "pop-up" antes da próxima aula
+    dialogP.showModal();
 }
+
 
 //atualiza a hora em tempo real
 function updateContentHour(){
     horaAtual.textContent = getCurrentTime();
+    dialogHora.textContent = getCurrentTime();
 }
 
 //retorna a hora atual por: hora:minutos:segundos (ifs servem para deixar sempre um 0 ao lado do número, porém é recomendado usar a função padstart para isso se for necessário fazer novamente)
