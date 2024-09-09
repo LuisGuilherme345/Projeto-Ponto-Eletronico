@@ -1,8 +1,3 @@
-navigator.geolocation.getCurrentPosition((position) =>{
-    console.log(position);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
-});
 
 
 const diaSemana = document.getElementById("diadasemana");
@@ -24,14 +19,61 @@ const dialogHora = document.getElementById("dialog-hora")
 dialogHora.textContent = getCurrentTime();
 
 const botaoDialogEntrada = document.getElementById("dialog-entrada")
-botaoDialogEntrada.addEventListener("click", () =>{
-    //continuar em casa a partir deste
+const botaoDialogSaida = document.getElementById("dialog-saida")
+
+botaoDialogEntrada.addEventListener("click", () => {
+    saveRegisterStorage(JSON.stringify(dialogRegister("entrada")));
 })
+
+botaoDialogSaida.addEventListener("click", () =>{
+    saveRegisterStorage(JSON.stringify(dialogRegister("saida")));
+})
+
+function dialogRegister(typeInOut){
+
+    let currentDate = getCurrentDate();
+    let currentTime = getCurrentTime();
+    let userLocation = getUserLocation();
+
+    ponto = {
+        "date": currentDate,
+        "time": currentTime,
+        "location": locationUser,
+        "id": 1,
+        "type": typeInOut
+    }
+    return ponto;
+}
+
+function saveRegisterStorage(register){
+    localStorage.setItem("register", register);
+
+}
 
 const botaodialogFechar = document.getElementById("dialog-fechar");
 botaodialogFechar.addEventListener("click", () =>{
     dialogP.close();
 });
+
+
+localStorage.setItem("aula", "programação web");
+
+
+let locationUser = {};
+
+
+function getUserLocation(){
+    navigator.geolocation.getCurrentPosition((position) =>{
+        let userLocation = {
+            "lat": position.coords.latitude,
+            "long": position.coords.longitude
+        }
+        locationUser = userLocation;
+        console.log(locationUser);
+    });
+}
+
+
 
 function register(){
     dialogP.showModal();
