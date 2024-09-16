@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Sistema de ponto eletrônico</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="datahora">
-        <p id="diadasemana">-------------</p>
-        <p id="dataatual">--/--/----</p>
-        <p id="horaatual">--:--:--</p>
+    <div class="data-hora">
+        <P id="dia-semana">------------</P>
+        <p id="data-atual">--/--/----</p>
+        <p id="hora-atual">--:--:--</p>
     </div>
-    <button id="botaoregistrar">Registrar Ponto</button>
+    <button id="btn-registrar-ponto"> Registrar ponto </button>
 
-    <dialog id="dialog-p">
-        <p id="dialog-data">Data: </p>
-        <p id="dialog-hora">Hora: </p>
-        <button id="dialog-fechar">X</button>
-        <select name="dialog-entradas" id="register-type">
-            <option value="">--Selecione uma opção para registrar--</option>
-            <option value="entrada">--Entrada--</option>
-            <option value="intervalo">--Intervalo--</option>
-            <option value="intervalo-volta">--Volta do intervalo--</option>
-            <option value="saida">--Saída--</option>
+    <dialog id="dialog-ponto">
+        <label>Data: </label><p id="dialog-data"></p>
+        <label>Hora: </label><p id="dialog-hora"></p>
+        <select name="register-type" id="register-type">
+            <option value="entrada">Entrada</option>
+            <option value="intervalo">Intervalo</option>
+            <option value="saidaIntervalo">Saida do intervalo</option>
+            <option value="saida">Saida</option>
         </select>
-        <button id="botao-dialog-registrar">Registrar Ponto</button>
+        <button id="btn-dialog-register">Registrar</button>
+        <button id="dialog-fechar">X</button>
+
+        <!--
+        <button id="btn-dialog-entrada">Entrada</button>
+        <button id="btn-dialog-saida">Saída</button>
+        <button>Intervalo</button>
+        <button>Volta do Intervalo</button>
+        -->
+        
     </dialog>
 
     <script src="js/index.js"></script>
