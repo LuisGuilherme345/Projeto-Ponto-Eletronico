@@ -17,9 +17,15 @@
     <dialog id="dialog-p">
         <p id="dialog-data">Data: </p>
         <p id="dialog-hora">Hora: </p>
-        <button id="dialog-entrada">Entrada</button>
-        <button id="dialog-saida">Saída</button>
-        <button autofocus id="dialog-fechar">X</button>
+        <button id="dialog-fechar">X</button>
+        <select name="dialog-entradas" id="register-type">
+            <option value="">--Selecione uma opção para registrar--</option>
+            <option value="entrada">--Entrada--</option>
+            <option value="intervalo">--Intervalo--</option>
+            <option value="intervalo-volta">--Volta do intervalo--</option>
+            <option value="saida">--Saída--</option>
+        </select>
+        <button id="botao-dialog-registrar">Registrar Ponto</button>
     </dialog>
 
     <script src="js/index.js"></script>

@@ -7,11 +7,20 @@
     padding: 30px;
     color: gray;
 }
+.dialog-data{
+    text-align: center;
+}
+.dialog-hora{
+    text-align: center;
+}
 ::backdrop {
     background-image: linear-gradient(
         45deg,
         cyan,
-        blue
+        rgb(11, 172, 212),
+        rgb(0, 153, 255),
+        blue,
+        purple
     );
     opacity: 0.75;
 }
@@ -23,10 +32,7 @@
     color:red;
 }
 
-#dialog-entrada {
-    color: blue;
-}
-#dialog-saida{
+#dialog-entradas {
     color: blue;
 }
 #dialog-data{

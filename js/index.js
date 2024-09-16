@@ -12,28 +12,28 @@ diaSemana.textContent = getWeekDay();
 
 const dialogP = document.getElementById("dialog-p");
 
-const dialogData = document.getElementById("dialog-data")
+const dialogData = document.getElementById("dialog-data");
 dialogData.textContent = getCurrentDate();
 
-const dialogHora = document.getElementById("dialog-hora")
+const dialogHora = document.getElementById("dialog-hora");
 dialogHora.textContent = getCurrentTime();
 
-const botaoDialogEntrada = document.getElementById("dialog-entrada")
-const botaoDialogSaida = document.getElementById("dialog-saida")
+const selectRegisterType = document.getElementById("register-type");
 
-botaoDialogEntrada.addEventListener("click", () => {
-    saveRegisterStorage(JSON.stringify(dialogRegister("entrada")));
-})
+const botaoDialogRegister = document.getElementById("botao-dialog-registrar");
+botaoDialogRegister.addEventListener("click", () => {
 
-botaoDialogSaida.addEventListener("click", () =>{
-    saveRegisterStorage(JSON.stringify(dialogRegister("saida")));
-})
+    let register = dialogRegister(selectRegisterType.value);
+   
+    localStorage.setItem("lastRegisterType", selectRegisterType.value);
+});
+const botaoDialogFechar = document.getElementById("dialog-fechar");
 
+//cria um objeto correspondente a um registro de ponto com data/hora/localização atualizados, parâmetro é o tipo de ponto
 function dialogRegister(typeInOut){
 
     let currentDate = getCurrentDate();
     let currentTime = getCurrentTime();
-    let userLocation = getUserLocation();
 
     ponto = {
         "date": currentDate,
@@ -45,13 +45,27 @@ function dialogRegister(typeInOut){
     return ponto;
 }
 
-function saveRegisterStorage(register){
-    localStorage.setItem("register", register);
+let registerLocalStorage = getRegisterLocalStorage("register");
+
+function saveRegisterLocalstorage(register){
+    registerLocalStorage.push(register);
+
+    localStorage.setItem("register", JSON.stringify(registerLocalStorage));
+}
+
+function getRegisterLocalStorage(key) {
+
+    let register = localStorage.getItem(key);
+
+    if(!register) {
+        return [];
+    }
+
+    return JSON.parse(register);
 
 }
 
-const botaodialogFechar = document.getElementById("dialog-fechar");
-botaodialogFechar.addEventListener("click", () =>{
+botaoDialogFechar.addEventListener("click", () =>{
     dialogP.close();
 });
 
@@ -72,6 +86,7 @@ function getUserLocation(){
         console.log(locationUser);
     });
 }
+
 
 
 
