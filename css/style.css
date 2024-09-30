@@ -1,19 +1,63 @@
-.data-hora{
-    text-align: center;
+body {
+    background-image: url(imagens/heilagvagga.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-#dialog-p {
-    border-radius: 20px;
+.big-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+    
+}
+
+.data-hora{
+    font-size: 25px;
+    color: white;
+}
+
+.labels,#dialog-data,#dialog-hora{
+    font-size: 25px;
+}
+
+#register-type{
+    width: 150px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+#btn-dialog-register{
+    width: 150px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+#btn-registrar-ponto{
+    background-color: white;
+    border-color: white;
     padding: 30px;
-    color: gray;
+    width: 220px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-width: 3px;
 }
-.dialog-data{
-    text-align: center;
+
+#dialog-ponto {
+    background-color: rgb(203, 241, 245);
+    border-color: rgb(113, 201, 206);
+    width: 330px;
+    padding: 40px;
+    border-radius: 10px;
+    border-width: 3px;
+  
 }
-.dialog-hora{
-    text-align: center;
-}
-::backdrop {
+
+dialog::backdrop {
     background-image: linear-gradient(
         45deg,
         cyan,
@@ -26,18 +70,31 @@
 }
 
 #dialog-fechar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color:red;
+    padding: 5px;
+    width: 30px;
+    font-size: 20px;
+    border: 0;
 }
 
-#dialog-entradas {
-    color: blue;
+.align-content-dialog {
+    display: flex;
+    flex-direction: column;
 }
-#dialog-data{
-    color:black;
+
+.disalign-close-btn {
+    display: flex;
+    flex-direction: row-reverse;
 }
-#dialog-hora{
-    color:black;
+
+
+::backdrop {
+    background-image: linear-gradient(
+        45deg,
+        cyan,
+        rgb(11, 172, 212),
+        rgb(0, 153, 255),
+        blue,
+        purple
+    );
+    opacity: 0.75;
 }

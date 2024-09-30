@@ -47,14 +47,23 @@ btnDialogSaida.addEventListener("click", () => {
 // EX. se o último ponto do usuário for do tipo entrada, selecionar por padrão a option intervalo
 const selectRegisterType = document.getElementById("register-type");
 
-//Selecionar o provável tipo do próximo registro
-function selectRegisterType(){
-    let lastType = localStorage.getItem("lastRegisterType");
-    if (lastType == "entrada"){
+function setRegisterType(){
+    let lastType = localStorage.setItem("lastRegisterType");
+    if(lastType == "entrada") {
         selectRegisterType.value = "intervalo";
     }
-}
+    if(lastType == "intervalo") {
+        selectRegisterType.value = "volta-intervalo"
+    }
+    if(lastType == "volta-intervalo") {
+        selectRegisterType.value = "saida"
+    }
+    if(lastType == "saida") {
+        selectRegisterType.value = "entrada"
+    }
 
+
+}
 
 btnDialogRegister = document.getElementById("btn-dialog-register");
 btnDialogRegister.addEventListener("click", ()=>{
@@ -64,6 +73,9 @@ btnDialogRegister.addEventListener("click", ()=>{
 
     localStorage.setItem("lastRegisterType", selectRegisterType.value);
     
+    dialogPonto.close();
+
+    // Ao invés de só fechar, deixar por 3 a 5 segundos e informar se teve sucesso ou falha
 })
 
 
