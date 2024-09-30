@@ -188,3 +188,5 @@ setInterval(updateContentHour, 1000);
 // ( ) A fazer 5, arrumar a localização que aparece, atualmente, no local storage de forma assíncrona
 // ( ) A fazer 6, mostrar ao usuário, no dialog, quando foi seu último "input"
 // ( ) A fazer 7, organizar o código
+
+//Verificar o repositório do professor e comparar o código antes da próxima aula (7/10)
